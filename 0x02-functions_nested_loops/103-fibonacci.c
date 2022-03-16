@@ -1,32 +1,24 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
- * main - Entry point
- *
- * purpose - fibonacci
- *
- * Return: (0) always
+ * main - finds and prints the sum of the even-valued terms,
+ * followed by a new line.
+ * Return: return 0
  */
-	int main(void)
+
+int main(void)
+{
+	unsigned long nbr1 = 0, nbr2 = 1, follow = 0, sum = 0;
+
+	while (follow < 4000000)
 	{
-		unsigned long int lim = 4000000;
-		unsigned long int bef = 0;
-		unsigned long int aft = 1;
-		unsigned long int R = 0;
-		unsigned long int sum = 0;
-
-		while (lim > R)
-		{
-			R = bef + aft;
-
-			if ((R % 2) == 0)
-			{
-				sum += R;
-			}
-
-			bef = aft;
-			aft = R;
-		}
-		printf("%li\n", sum);
-		return (0);
+		follow = nbr1 + nbr2;
+		nbr1 = nbr2;
+		nbr2 = follow;
+		if ((nbr1 % 2) == 0)
+			sum += nbr1;
+	}
+	printf("%ld\n", sum);
+	return (0);
 }
